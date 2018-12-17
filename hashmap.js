@@ -61,10 +61,13 @@ class HashMap {
     // find index
     const index = this._findSlot(key);
 
+    // Only increase length if the slot is undefined (i.e. we are not overwriting)
+    if (!this.slots[index]) {
+      this.length += 1;
+    }
+
     // store new {key, value} at index
     this.slots[index] = { key, value, deleted: false };
-    // increase length
-    this.length += 1;
   }
 
   get(key) {
