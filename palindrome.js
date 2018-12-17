@@ -64,13 +64,13 @@ function IsPalindromPermutation(string){
         dict.set(char, count+1); 
     }
 
-    let seenOddCount = false; 
+    let oddCount = 0; 
     for(const count of dict.values()){ 
         if( count % 2 === 1){ 
-            if (seenOddCount){ 
+            oddCount += 1; 
+            if (oddCount > 1){ 
                 return false; 
             }
-            seenOddCount = true; 
         }
     }
     return true; 
